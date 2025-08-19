@@ -1,0 +1,14 @@
+/ {
+    aliases {
+        led0 = &blink_led;
+    };
+
+    leds {
+        compatible = "gpio-leds";
+
+        blink_led: blink_led {
+            gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
+            label = "Onboard Blink LED";
+        };
+    };
+};
