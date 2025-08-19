@@ -8,6 +8,7 @@
 
 # build
 /app/build*
+!/app/build.sh
 /build*
 /twister-out*
 
@@ -15,3 +16,5 @@ __pycache__/
 
 # docs
 /doc/_build*
+app/.DS_Store
+app/boards/.DS_Store
