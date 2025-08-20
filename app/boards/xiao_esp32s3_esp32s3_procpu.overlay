@@ -1,0 +1,19 @@
+
+
+&i2c0 {
+
+	clock-frequency = <I2C_BITRATE_STANDARD>;
+
+    
+    aht20: aht20@38{
+        compatible = "i2c-device";
+        status = "okay";
+        reg = <0x38>;
+    };
+
+    sgp30: sgp30@58{
+        compatible = "i2c-device";
+        status = "okay";
+        reg = <0x58>;
+    };
+};
