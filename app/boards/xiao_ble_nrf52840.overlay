@@ -15,8 +15,8 @@
         #address-cells = <1>;
         #size-cells = <0>;
 
-        sda-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        scl-gpios = <&gpio1 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        sda-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+        scl-gpios = <&gpio1 12 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
 
         clock-frequency = <I2C_BITRATE_STANDARD>;
 
@@ -29,11 +29,11 @@
             reg = <0x38>;
         };
 
-        // sgp30: sgp30@58{
-        //     compatible = "i2c-device";
-        //     status = "okay";
-        //     reg = <0x58>;
-        // };
+        sgp30: sgp30@58{
+            compatible = "i2c-device";
+            status = "okay";
+            reg = <0x58>;
+        };
     };
 };
 

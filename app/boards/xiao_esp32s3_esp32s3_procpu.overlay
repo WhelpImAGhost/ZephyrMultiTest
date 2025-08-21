@@ -27,5 +27,11 @@
             reg = <0x38>;
             status = "okay";
         };
+        
+        sgp30: sgp30@58{
+            compatible = "i2c-device";
+            status = "okay";
+            reg = <0x58>;
+        };
     };
 };

@@ -1,0 +1,18 @@
+Current measurements between processors
+
+ - Connected to AHT20 using I2C
+ - Sampling AHT20 every 5 seconds
+ - AHT20 power is not measured (supplied by different 3v3 with common GND)
+ - Using INA3221 for current measurement
+ - Let current stabilize for > 1 minute
+ - Collect avg current after stabilization
+
+ RP2040   - 26.40 mA, 135.6 mW
+ ESP32C6  - 17.60 mA, 90.53 mW
+ ESP32S3  - 31.60 mA, 160.0 mW
+ NRF52840 - 3.280 mA, 16.45 mW
+ NRF54L15 - 1.600 mA, 8.230 mW
+
+
+
+ 
