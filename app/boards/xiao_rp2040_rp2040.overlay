@@ -1,33 +1,44 @@
 
 / {
     chosen{
-        zephyr,console = &cdc_acm_uart0;
+        zephyr,console = &cdc_acm_uart1;
     };
-};
 
-&i2c1 {
-    status = "okay";
-	clock-frequency = <I2C_BITRATE_STANDARD>;
-    pinctrl-0 = <&i2c1_default>;
-    pinctrl-names = "default";
-    aht20: aht20@38{
+    i2c_gpio0: i2c_gpio0 {
+        compatible = "gpio-i2c";
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        status = "okay";
+
+        sda-gpios = <&gpio0 0 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+        scl-gpios = <&gpio0 1 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+        
+        clock-frequency = <I2C_BITRATE_STANDARD>;
+
+        aht20: aht20@38{
         compatible = "i2c-device";
         status = "okay";
         reg = <0x38>;
     };
 
-    sgp30: sgp30@58{
-        compatible = "i2c-device";
-        status = "okay";
-        reg = <0x58>;
     };
+    
+};
+
+&i2c1 {
+    status = "disabled";
 };
 
 &zephyr_udc0 {
-        cdc_acm_uart0: cdc_acm_uart0 {
+        cdc_acm_uart1: cdc_acm_uart1 {
             compatible = "zephyr,cdc-acm-uart";
-            label = "CDC_ACM_0";
+            label = "CDC_ACM_1";
             #address-cells = <1>;
             #size-cells = <0>;
         };
     };
+
+&uart0 {
+    status = "disabled";
+};
